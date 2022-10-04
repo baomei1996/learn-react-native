@@ -5,7 +5,7 @@ import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 
 export default function App() {
-  const [useNumber, setUserNumber] = useState(null);
+  const [userNumber, setUserNumber] = useState(null);
 
   function pickedNumberHandler(pickedNumber) {
     setUserNumber(pickedNumber)
@@ -13,8 +13,8 @@ export default function App() {
 
   let screen = <StartGameScreen pickNumber={pickedNumberHandler} />
 
-  if(useNumber) {
-    screen = <GameScreen />
+  if(userNumber) {
+    screen = <GameScreen userNumber={userNumber} />
   }
 
   return (
