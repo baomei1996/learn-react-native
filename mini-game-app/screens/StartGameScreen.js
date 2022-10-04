@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextInput, View, StyleSheet, Alert } from "react-native";
-import PriamryButton from "../components/PriamryButton";
+import PriamryButton from "../components/ui/PriamryButton";
 
 function StartGameScreen({ pickNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
