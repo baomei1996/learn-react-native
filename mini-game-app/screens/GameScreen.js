@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet, Alert } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
 import PriamryButton from "../components/ui/PriamryButton";
@@ -14,9 +14,15 @@ function generateRamdomBetween(min, max, exclude) {
   }
 }
 
-function GameScreen({ userNumber }) {
+function GameScreen({ userNumber, onGameOver }) {
   const initialGuess = generateRamdomBetween(1, 100, userNumber);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+
+  useEffect(() => {
+    if(currentGuess === userNumber) {
+      onGameOver();
+    }
+  }, [currentGuess, userNumber, onGameOver ])
 
   let minBoundary = 1;
   let maxBoundary = 100;
@@ -47,8 +53,8 @@ function GameScreen({ userNumber }) {
       <NumberContainer>{currentGuess}</NumberContainer>
         <View>
           <Text>Higher or lower</Text>
-          <PriamryButton onPress={nextGuessHandler.bind(this, 'lower')}>+</PriamryButton>
-          <PriamryButton onPress={nextGuessHandler.bind(this, 'greater')}>-</PriamryButton>
+          <PriamryButton onPress={nextGuessHandler.bind(this, 'lower')}>-</PriamryButton>
+          <PriamryButton onPress={nextGuessHandler.bind(this, 'greater')}>+</PriamryButton>
       </View>
     </View>
   )
