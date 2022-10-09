@@ -4,7 +4,7 @@ import Title from "../components/ui/Title";
 import Card from "../components/ui/Card"
 import InstructionText from "../components/ui/InstructionText"
 import NumberContainer from "../components/game/NumberContainer";
-import PriamryButton from "../components/ui/PriamryButton";
+import PrimaryButton from "../components/ui/PrimaryButton";
 import { Ionicons } from "@expo/vector-icons"
 
 function generateRamdomBetween(min, max, exclude) {
@@ -58,14 +58,14 @@ function GameScreen({ userNumber, onGameOver }) {
           <InstructionText style={styles.instructionText}>Higher or lower</InstructionText>
           <View style={styles.buttonsContainer}>
             <View style={styles.buttonContainer}>
-              <PriamryButton onPress={nextGuessHandler.bind(this, 'lower')}>
+              <PrimaryButton onPress={nextGuessHandler.bind(this, 'lower')}>
                 <Ionicons name="md-remove" />
-              </PriamryButton>
+              </PrimaryButton>
             </View>
             <View style={styles.buttonContainer}>
-              <PriamryButton onPress={nextGuessHandler.bind(this, 'greater')}>
+              <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>
                 <Ionicons name="add" />
-              </PriamryButton>
+              </PrimaryButton>
             </View>
           </View>
       </Card>

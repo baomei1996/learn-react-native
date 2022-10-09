@@ -3,7 +3,7 @@ import { TextInput, View, StyleSheet, Alert, Text } from "react-native";
 import Title from "../components/ui/Title";
 import Card from "../components/ui/Card"
 import InstructionText from "../components/ui/InstructionText"
-import PriamryButton from "../components/ui/PriamryButton";
+import PrimaryButton from "../components/ui/PrimaryButton";
 
 function StartGameScreen({ pickNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -40,10 +40,10 @@ function StartGameScreen({ pickNumber }) {
         <TextInput style={styles.numberInput} value={enteredNumber} onChangeText={numberInputHandler} maxLength="2" keyboardType="number-pad" autoCapitalize="none" autoCorrect={false} />
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
-            <PriamryButton onPress={resetInputHandler}>Reset</PriamryButton>
+            <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
           </View>
           <View style={styles.buttonContainer}>
-            <PriamryButton onPress={confirmInputHandler}>Confirm</PriamryButton>
+            <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
           </View>
         </View>
       </Card>

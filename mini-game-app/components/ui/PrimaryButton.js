@@ -1,7 +1,7 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import Colors from "../../constants/colors";
 
-function PriamryButton({ children, onPress }) {
+function PrimaryButton({ children, onPress }) {
   function pressHandler() {
     onPress();
   }
@@ -15,7 +15,7 @@ function PriamryButton({ children, onPress }) {
   )
 }
 
-export default PriamryButton;
+export default PrimaryButton;
 
 const styles = StyleSheet.create({
   buttonOuterContainer: {
