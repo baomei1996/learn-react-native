@@ -1,9 +1,10 @@
-import {View, Text, StyleSheet} from "react-native";
+import {View, StyleSheet} from "react-native";
+import Title from "../ui/Title";
 import Colors from "../../constants/colors";
 
 function NumberContainer({ children }) {
   return <View style={styles.container}>
-    <Text>{children}</Text>
+    <Title>{children}</Title>
   </View>
 }
 
@@ -20,8 +21,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
    },
    numberText: {
+    fontFamily: 'open-sans-bold',
     fontSize: 36,
-    fontWeight: 'bold',
     color: '#fff',
    }
 })

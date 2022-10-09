@@ -1,8 +1,11 @@
 import { Text, View, StyleSheet, Alert } from "react-native";
 import { useState, useEffect } from "react";
 import Title from "../components/ui/Title";
+import Card from "../components/ui/Card"
+import InstructionText from "../components/ui/InstructionText"
 import NumberContainer from "../components/game/NumberContainer";
 import PriamryButton from "../components/ui/PriamryButton";
+import { Ionicons } from "@expo/vector-icons"
 
 function generateRamdomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -51,11 +54,21 @@ function GameScreen({ userNumber, onGameOver }) {
     <View style={styles.screen}>
       <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
-        <View>
-          <Text>Higher or lower</Text>
-          <PriamryButton onPress={nextGuessHandler.bind(this, 'lower')}>-</PriamryButton>
-          <PriamryButton onPress={nextGuessHandler.bind(this, 'greater')}>+</PriamryButton>
-      </View>
+        <Card>
+          <InstructionText style={styles.instructionText}>Higher or lower</InstructionText>
+          <View style={styles.buttonsContainer}>
+            <View style={styles.buttonContainer}>
+              <PriamryButton onPress={nextGuessHandler.bind(this, 'lower')}>
+                <Ionicons name="md-remove" />
+              </PriamryButton>
+            </View>
+            <View style={styles.buttonContainer}>
+              <PriamryButton onPress={nextGuessHandler.bind(this, 'greater')}>
+                <Ionicons name="add" />
+              </PriamryButton>
+            </View>
+          </View>
+      </Card>
     </View>
   )
 }
@@ -67,4 +80,13 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24
   },
+  instructionText: {
+    marginBottom: 14, 
+  },
+  buttonsContainer: {
+    flexDirection: 'row'
+  },
+  buttonContainer: {
+    flex: 1
+  }
 })

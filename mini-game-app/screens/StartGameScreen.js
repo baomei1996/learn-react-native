@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { TextInput, View, StyleSheet, Alert } from "react-native";
+import { TextInput, View, StyleSheet, Alert, Text } from "react-native";
+import Title from "../components/ui/Title";
+import Card from "../components/ui/Card"
+import InstructionText from "../components/ui/InstructionText"
 import PriamryButton from "../components/ui/PriamryButton";
 
 function StartGameScreen({ pickNumber }) {
@@ -30,35 +33,31 @@ function StartGameScreen({ pickNumber }) {
   }
 
   return (
-    <View style={styles.inputContainer}>
-      <TextInput style={styles.numberInput} value={enteredNumber} onChangeText={numberInputHandler} maxLength="2" keyboardType="number-pad" autoCapitalize="none" autoCorrect={false} />
-      <View style={styles.buttonsContainer}>
-        <View style={styles.buttonContainer}>
-          <PriamryButton onPress={resetInputHandler}>Reset</PriamryButton>
+  <View style={styles.rootContainer}>
+    <Title>Guess My Number</Title>
+    <Card>
+      <InstructionText style={styles.instructionText}>Enter a Number</InstructionText>
+        <TextInput style={styles.numberInput} value={enteredNumber} onChangeText={numberInputHandler} maxLength="2" keyboardType="number-pad" autoCapitalize="none" autoCorrect={false} />
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PriamryButton onPress={resetInputHandler}>Reset</PriamryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PriamryButton onPress={confirmInputHandler}>Confirm</PriamryButton>
+          </View>
         </View>
-        <View style={styles.buttonContainer}>
-          <PriamryButton onPress={confirmInputHandler}>Confirm</PriamryButton>
-        </View>
-      </View>
-    </View>
+      </Card>
+  </View>
   )
 }
 
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
+  rootContainer: {
+    flex: 1,
     marginTop: 100,
-    marginHorizontal: 24,
-    borderRadius: 8, 
-    backgroundColor: "#4e0329",
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    shadowOpacity: 0.25
+    alignItems: 'center'
   },
   numberInput: {
     height: 50,
