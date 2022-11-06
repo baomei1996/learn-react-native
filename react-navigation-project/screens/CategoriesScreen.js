@@ -3,11 +3,11 @@ import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTile from "../components/CategoryGridTile";
 
 function renderCategoryItem({item}) {
-    return <CategoryGridTile title={item.title}/>
+    return <CategoryGridTile title={item.title} color={item.color}/>
 }
 
 function CategoriesScreen() {
-    return <FlatList data={CATEGORIES} keyExtractor={(item) => item.id} renderItem={renderCategoryItem}/>
+    return <FlatList data={CATEGORIES} keyExtractor={(item) => item.id} renderItem={renderCategoryItem} numColumns={2}/>
 }
 
 export default CategoriesScreen;
