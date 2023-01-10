@@ -21,7 +21,7 @@ class Meal {
     this.ingredients = ingredients;
     this.steps = steps;
     this.duration = duration;
-    this.complexity = complexity;
+    this.complexity = complexity; 
     this.affordability = affordability;
     this.isGlutenFree = isGlutenFree;
     this.isVegan = isVegan;
