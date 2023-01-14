@@ -1,12 +1,28 @@
-import { View, FlatList, StyleSheet, Text } from "react-native";
+import { View, FlatList, StyleSheet, Text, Image } from "react-native";
 import { useEffect, useLayoutEffect } from "react";
 import { MEALS, CATEGORIES } from "../data/dummy-data";
+import MealDetails from "../components/MealDetails";
 
 function MealDetailScreen({ route, navigation }) {
     const mealId = route.params.mealId;
+    const selectedMeal = MEALS.find((meal) => meal.id === mealId);
     return (
         <View style={styles.container}>
-            <Text>This is the Meal Deatil Screen ({mealId})</Text>
+            <Image source={{ uri: selectedMeal.imageUrl }} />
+            <Text>{selectedMeal.title}</Text>
+            <MealDetails
+                duration={selectedMeal.duration}
+                affordability={selectedMeal.affordability}
+                complexity={selectedMeal.complexity}
+            />
+            <Text>Ingredients</Text>
+            {selectedMeal.ingredients.map((ingredient) => (
+                <Text key={ingredient}>{ingredient}</Text>
+            ))}
+            <Text>Steps</Text>
+            {selectedMeal.steps.map((step) => (
+                <Text key={step}>{step}</Text>
+            ))}
         </View>
     );
 }
