@@ -1,4 +1,4 @@
-import { StatusBar, SafeAreaView } from "react-native";
+import { StatusBar, SafeAreaView, Text, Button } from "react-native";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealDetailScreen from "./screens/MealDetailScreen";
