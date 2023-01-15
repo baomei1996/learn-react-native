@@ -8,7 +8,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import FavoritesContextProvider from "./store/context/favorites-context";
+// import FavoritesContextProvider from "./store/context/favorites-context";
+import { store } from "./store/redux";
+import { Provider } from "react-redux";
 
 import { Ionicons } from "@expo/vector-icons";
 
@@ -55,7 +57,8 @@ export default function App() {
     return (
         <>
             <StatusBar barStyle="light-content" />
-            <FavoritesContextProvider>
+            <Provider store={store}>
+                {/* <FavoritesContextProvider> */}
                 <NavigationContainer>
                     <Stack.Navigator
                         screenOptions={{
@@ -81,7 +84,8 @@ export default function App() {
                         />
                     </Stack.Navigator>
                 </NavigationContainer>
-            </FavoritesContextProvider>
+                {/* </FavoritesContextProvider> */}
+            </Provider>
         </>
     );
 }
